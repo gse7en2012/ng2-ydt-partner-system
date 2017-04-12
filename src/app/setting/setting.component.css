@@ -1,0 +1,88 @@
+.avatar{
+    width: 40%;
+    height: 0;
+    padding-bottom: 40%;
+    margin: 15% auto 10px;
+    border-radius: 50%;
+    border: 1px solid #111;
+    overflow: hidden;
+}
+.avatar img{
+    display: block;
+    width: 90%;
+    margin-left: 50%;
+    transform: translate(-50%,-50%);
+    margin-top: 50%;
+    border-radius: 50%;
+}
+.username{
+    color:#ffc50c;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 15%;
+}
+.setting-list{
+    width: 90%;
+    background: #051b29;
+    margin: 0 auto;
+    padding: 0 4%;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.setting-list li{
+    list-style: none;
+    color:#ffc50c;
+    font-size: 18px;
+    height:40px;
+    line-height: 40px;
+    border-bottom: 1px solid #07263b;
+    padding: 1% 0;
+    overflow: hidden;
+    position: relative;
+}
+.setting-list li:last-of-type{
+    border-bottom: none;
+}
+.setting-list li .arrow{
+    border: 2px solid #ffc50c;
+    float: right;
+    width: 10px;
+    height: 10px;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    transform: rotate(-45deg);
+    margin-right: 5px;
+    margin-top: 14px;
+}
+.setting-list li .icon{
+    float: left;
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-top: 9px;
+    margin-right: 10px;
+}
+.setting-list .status{
+    float: right;
+    color: #38a1ff;
+    font-size: 16px;
+}
+.cert.icon{
+    background-image: url('assets/img/cert.png') 
+}
+.intrude.icon{
+     background-image: url('assets/img/intrude.png') 
+}
+.notice.icon{
+     background-image: url('assets/img/notice.png') 
+}
+.tips{
+    color:#8db7d3;
+    width: 90%;
+    margin: 10px auto;
+    font-size: 14px;
+}
+.tips .b{
+    color: #38a1ff;
+}

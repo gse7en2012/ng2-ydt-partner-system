@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+* { margin: 0; padding: 0; }
+
+
+
+body{
+    background: #07263b;
+}
+
+.main{
+    max-width: 750px;
+    margin: 0 auto;
+}
+.top-bar{
+    background: #051b29;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+}
+.nav-bot{
+    position: fixed;
+    height:50px;
+    bottom:0;
+    width:100%;
+    left:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.nav-bot .nav{
+    flex:1;
+    height:50px;
+    line-height:50px;
+    font-size:18px;
+    background: #051b29;
+    color:#ffc50c;
+}
+.nav-bot .nav.cur{
+    background: #ffc50c;
+    color:#fff;
+}
