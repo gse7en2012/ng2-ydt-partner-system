@@ -1,0 +1,33 @@
+.auth-bank-page{    max-width: 750px;margin: 0 auto;background: #07263b;position:absolute;min-height: 100%;z-index: 999;width: 100%;}
+
+.step{overflow: hidden;display: flex;width: 280px;margin: 25px auto;align-items: center;}
+.step .line{flex:3;border-bottom:1px dashed #618198;width: 100px;margin-top: -23px;}
+.step .index{flex:2}
+.step .num{display: block;width: 70px;height: 70px;border-radius: 50%;background: #051b29;font-size: 24px;text-align: center;line-height: 70px;color: #ffc50c;margin: 0 auto;}
+.step .num.cur{background: #082d46;}
+.step .index p{color: #618198;font-size: 13px;line-height: 1.5;text-align: center;margin-top: 5px;}
+
+.tips{background: #618198;position: relative;color: #051b29;padding: 8px 25px;}
+.tips .close{position: absolute;right: 5px;font-size: 24px;background: #082d46;width: 24px;height: 24px;line-height: 20px;text-align: center;color:#38a1ff;border-radius: 50%;}
+
+
+.form{background: #051b29;width: 94%;margin: 15px auto;overflow: hidden;border-radius: 10px;}
+.form .item{overflow: hidden;margin: 0 15px;padding: 15px 0;border-bottom:1px solid #07263b;}
+.form .item:last-of-type{border: 0;}
+.form .item label{float: left;width: 35%;font-size: 16px;color: #ffc50c;line-height: 1.5;}
+.form .item .wide{width: 68%;}
+.form .item input{float:left;width: 65%;background: none;border:0;line-height: 1.5;font-size: 16px;color: #38a1ff;outline: 0;text-align: right;}
+.form .item .icon{float: right;width: 26px;margin-top: 2px;padding-left: 20%;}
+.form .item .info{float: right;font-size: 16px;color: #38a1ff;position: relative;}
+.form .item .close-small{float: right;font-size: 24px;background: #082d46;width: 24px;height: 24px;line-height: 20px;text-align: center;color:#38a1ff;border-radius: 50%;position: relative;z-index: 100;}
+.form .item .disable{color:#999;user-select: none;}
+
+@media screen and (max-width:320px){
+    .form .item .option{font-size: 14px;}
+}
+
+.notice{color:#618198;font-size: 14px;line-height: 1.5;margin: 10px 20px;}
+
+.btn{display: block;width: 90%;margin: 30px auto;background: #618198;font-size: 20px;text-align: center;height: 46px;line-height: 46px;border-radius: 100px;text-decoration: none;color:#07263b;margin-bottom: 15px;}
+.btn.cur{background: #ffc50c;}
+.skip{color: #38a1ff;text-decoration: none;font-size: 16px;display: block;text-align: center;margin: 10px;}

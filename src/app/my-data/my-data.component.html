@@ -1,0 +1,96 @@
+<div class="my-data-container">
+  <div class="top-bar">
+    <a class="top-arrow" routerLink="/query"></a>我的拓展数据
+  </div>
+
+  <div class="top-nav">
+    <a [class.cur]="queryType==1" (click)="changeQueryType(1)">CPA查询</a>
+    <a [class.cur]="queryType==2" (click)="changeQueryType(2)">点差查询</a>
+  </div>
+
+  <div class="dashboard" *ngIf="queryType==1">
+    <div class="part">
+      <span class="icon"></span>
+      <span class="num">{{dataDetails.newValidCount}}</span>
+      <span class="desc">新增达标(人)</span>
+    </div>
+    <div class="part">
+      <span class="icon"></span>
+      <span class="num">{{dataDetails.totalValidCount}}</span>
+      <span class="desc">累计达标(人)</span>
+    </div>
+  </div>
+
+
+  <div class="dashboard" *ngIf="queryType==2">
+    <div class="part no-border">
+      <span class="icon"></span>
+      <span class="num">{{dataDetails.newRevenues}}</span>
+      <span class="desc">新增点差(美元)</span>
+    </div>
+  </div>
+
+
+  <div class="table-box">
+
+    <div class="scroll">
+      <table *ngIf="queryType==1">
+        <tr>
+          <th>昵称</th>
+          <th>id</th>
+          <th>开户日期</th>
+          <th>达标</th>
+          <th>累计入金</th>
+          <th>累计出金</th>
+          <th>点差天数</th>
+          <th>累计平仓笔数</th>
+          <th>当月平均仓位</th>
+        </tr>
+        <tr *ngFor="let row of dataDetails.results">
+          <td><span>{{row.nickName}}</span></td>
+          <td>{{row.id}}</td>
+          <td>{{row.registryDate}}</td>
+          <td>{{row.valid}}</td>
+          <td>{{row.deposits}}</td>
+          <td>{{row.cashout}}</td>
+          <td>{{row.revenueDays}}</td>
+          <td>{{row.trades}}</td>
+          <td>{{row.avgpos}}</td>
+        </tr>
+
+        <tr *ngIf="dataDetails.results==0">
+          <td colspan="4">暂时没有符合条件的数据</td>
+        </tr>
+      </table>
+      <table *ngIf="queryType==2">
+        <tr>
+          <th>昵称</th>
+          <th>id</th>
+          <th>开户日期</th>
+          <th>当月点差</th>
+          <th>交易最多产品</th>
+          <th>当月交易笔数</th>
+        </tr>
+        <tr *ngFor="let row of dataDetails.results">
+          <td><span>{{row.nickName}}</span></td>
+          <td>{{row.id}}</td>
+          <td>{{row.registryDate}}</td>
+          <td>{{row.revenues}}</td>
+          <td>{{row.topTradeStock}}</td>
+          <td>{{row.trades}}</td>
+        </tr>
+
+        <tr *ngIf="dataDetails.results==0">
+          <td colspan="3">暂时没有符合条件的数据</td>
+        </tr>
+      </table>
+
+
+    </div>
+  </div>
+
+  <div class="bottom">
+    <a class="time">{{dateOut}}<input type="month" [(ngModel)]="dateIn" (ngModelChange)="dateInChange($event)" class="picker"></a>
+    <a *ngIf="queryType==1" (click)="exportExcel()"><span class="export"></span>导出为Excel</a>
+  </div>
+</div>

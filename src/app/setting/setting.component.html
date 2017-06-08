@@ -1,20 +1,15 @@
-<div class="avatar">
-  <img src="https://pic4.zhimg.com/162dd7fba7d125e1ebb102ca33e9e777_xl.jpg">
-</div>
-<p class="username">Gseven2018</p>
+<div class="setting-page">
+  <div class="avatar">
+    <img src="{{avatar}}">
+  </div>
+  <p class="username">{{nickname}}</p>
 
 
-<ul class="setting-list">
-  <li><span class="icon cert"></span>上传认证资料<span class="arrow"></span><span class="status">未认证</span></li>
-  <li><span class="icon intrude"></span>达标用户说明<span class="arrow"></span></li>
-  <li><span class="icon notice"></span>重要公告<span class="arrow"></span></li>
-</ul>
+  <ul class="setting-list">
+    <li (tap)="uploadInfo()"><span class="icon cert"></span>上传认证资料<span class="arrow"></span><span class="status">{{validTips}}</span></li>
+    <li><span class="icon intrude"></span>达标用户说明<span class="arrow"></span></li>
+    <li><span class="icon notice"></span>重要公告<span class="arrow"></span></li>
+  </ul>
 
-<p class="tips">*联系客服：<span class="b">QQ123456789，手机138123456789</span></p>
-
-
-<div class="nav-bot">
-  <a class="nav">数据查询</a>
-  <a class="nav">推广</a>
-  <a class="nav cur">设置</a>
+  <p class="tips">*联系客服：<span class="b">QQ123456789，手机138123456789</span></p>
 </div>

@@ -1,0 +1,47 @@
+<div class="auth-account-page">
+  <header class="step">
+    <div class="index">
+      <span class="num cur">1</span>
+      <p>填写个人资料</p>
+    </div>
+    <div class="line"></div>
+    <div class="index">
+      <span class="num">2</span>
+      <p>填写提款资料</p>
+    </div>
+  </header>
+  <!--<router-outlet></router-outlet>-->
+  <div class="tips" *ngIf="validCode==2" [hidden]="hideTips">
+    <span class="close" (click)="hideReason()">&times;</span> {{refuseReason }}
+  </div>
+
+  <div class="form">
+    <div class="item">
+      <label>真实姓名</label>
+      <input type="text" [(ngModel)]="name" placeholder="输入姓名" [readonly]="readOnly" [ngClass]="{disable: readOnly}">
+    </div>
+    <div class="item">
+      <label>联系电话</label>
+      <input type="tel" [(ngModel)]="phone" placeholder="输入电话" [readonly]="readOnly" [ngClass]="{disable: readOnly}">
+    </div>
+    <div class="item">
+      <label>身份证号</label>
+      <input type="tel" [(ngModel)]="idcard" placeholder="输入身份证" [readonly]="readOnly" [ngClass]="{disable: readOnly}">
+    </div>
+  </div>
+  <div class="form">
+    <div class="item">
+      <label class="option">渠道顾问(选填)</label>
+      <input type="text" [(ngModel)]="channel" [readonly]="readOnly" [ngClass]="{disable: readOnly}" placeholder="输入渠道顾问">
+    </div>
+  </div>
+
+  <div class="notice">
+    免责声明：
+    <br>1、账号认证资料由发达公司管理；
+    <br>2、发达公司是易点投的战略合作伙伴，易点投仅提供数据查询支持；
+    <br>3、认证资料将受到严格保密，仅用于结算汇款。
+  </div>
+
+  <a (click)="sumbitInfo()" class="btn" [ngClass]="{cur: phone&&idcard&&name}">下一步</a>
+</div>

@@ -1,0 +1,48 @@
+<div class="auth-bank-page">
+  <header class="step">
+    <div class="index">
+      <span class="num">1</span>
+      <p>填写个人资料</p>
+    </div>
+    <div class="line"></div>
+    <div class="index">
+      <span class="num cur">2</span>
+      <p>填写提款资料</p>
+    </div>
+  </header>
+  <!--<router-outlet></router-outlet>-->
+  <div class="tips" *ngIf="validCode==2||validCode==5" [hidden]="hideTips">
+    <span class="close" (click)="hideReason()">&times;</span> {{refuseReason }}
+  </div>
+
+  <div class="form">
+    <div class="item">
+      <label>银行卡号</label>
+      <input type="text" placeholder="{{bankPlaceHolder}}" [(ngModel)]="bankNo" [readonly]="readOnly" [ngClass]="{disable: readOnly}">
+    </div>
+    <div class="item">
+      <label class="wide">上传银行卡照</label>
+      <img class="icon" src="assets/img/bank.png" [hidden]="bankCardIsUpload||readOnly" id="bank-card-upload">
+      <div class="info" [hidden]="!bankCardIsUpload">上传成功！<span class="close-small" (click)="deleteBankCard()">&times;</span></div>
+      <div class="info disable" *ngIf="readOnly">不可修改</div>
+    </div>
+    <div class="item">
+      <label class="wide">上传持卡人身份证正面照</label>
+      <img class="icon" src="assets/img/id.png" [hidden]="idCardIsUpload||readOnly" id="id-card-upload">
+      <div class="info" *ngIf="idCardIsUpload">上传成功！<span class="close-small" (click)="deleteIdCard()">&times;</span></div>
+      <div class="info disable" *ngIf="readOnly">不可修改</div>
+    </div>
+  </div>
+
+
+  <div class="notice">
+    免责声明：
+    <br>1、账号认证资料由发达公司管理；
+    <br>2、发达公司是易点投的战略合作伙伴，易点投仅提供数据查询支持；
+    <br>3、认证资料将受到严格保密，仅用于结算汇款。
+  </div>
+
+  <a (click)="submitInfo()" class="btn" [ngClass]="{cur: bankNo&&bankCardUri&&idCardUri}">{{btnText}}</a>
+  <!--<a (click)="skipSubmit()" class="skip" *ngIf="!isChecking">跳过此步，提交基本资料</a>-->
+  <a (click)="gotoIndex()" class="skip" *ngIf="validCode==1||validCode==3||validCode==4||validCode==5">跳过此步，进入合作伙伴系统</a>
+</div>

@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params, } from '@angular/router';
 import { trigger, state, animate, style, transition } from '@angular/core';
-
 import { UserService } from '../user.service';
 
-
 @Component({
-  selector: 'app-data-query',
-  templateUrl: './data-query.component.html',
-  styleUrls: ['./data-query.component.css'],
+  selector: 'app-popularize',
+  templateUrl: './popularize.component.html',
+  styleUrls: ['./popularize.component.css'],
   animations: [trigger('routerTransition', [
     state('void', style({ position: 'fixed', width: '100%', height: '100%', left: 0, top: 0, background: '#07263b' })),
+    // state('inactive',style({})),
     state('*', style({ position: 'fixed', width: '100%', height: '100%', left: 0, top: 0, background: '#07263b' })),
     transition(':enter', [  // before 2.1: transition('void => *', [
       style({ transform: 'translateX(100%)' }),
@@ -21,27 +19,23 @@ import { UserService } from '../user.service';
       animate('0.25s linear', style({ transform: 'translateX(-100%)' }))
     ])
   ])],
-  providers: [UserService],
   host: { '[@routerTransition]': '' }
 })
-export class DataQueryComponent implements OnInit {
+export class PopularizeComponent implements OnInit {
 
-  dataDeatils: any;
-  isHasProxy;
-  constructor(private router: Router, private userService: UserService) { }
+  public shareLink;
+
+  public qrCodeUri;
+
+  constructor(private userService:UserService) { }
 
   ngOnInit() {
-    this.userService.queryProxyAuth().then((auth) => {
-      this.isHasProxy = auth;
+    this.userService.getUserInfo().then((info)=>{
+        this.shareLink=`http://ydt.imaibo.cn/ydt/node/api/share_m?suid=${info['userId']}`;
+        const uri=encodeURIComponent(this.shareLink);
+        console.log(uri);
+        this.qrCodeUri=`http://pan.baidu.com/share/qrcode?w=200&h=200&url=${uri}`
     })
-  }
-
-  public goToMyData() {
-    this.router.navigate(['/query/mine']);
-  }
-
-  public goToProxyData(){
-    if(!this.isHasProxy) return false;
   }
 
 }
