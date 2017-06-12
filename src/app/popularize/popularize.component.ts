@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { trigger, state, animate, style, transition } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { UserService } from '../user.service';
+
+declare var Clipboard: any;
+declare var weui: any;
 
 @Component({
   selector: 'app-popularize',
@@ -21,20 +24,40 @@ import { UserService } from '../user.service';
   ])],
   host: { '[@routerTransition]': '' }
 })
-export class PopularizeComponent implements OnInit {
+export class PopularizeComponent implements OnInit, AfterViewInit {
 
   public shareLink;
 
   public qrCodeUri;
 
-  constructor(private userService:UserService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getUserInfo().then((info)=>{
-        this.shareLink=`http://ydt.imaibo.cn/ydt/node/api/share_m?suid=${info['userId']}`;
-        const uri=encodeURIComponent(this.shareLink);
-        console.log(uri);
-        this.qrCodeUri=`http://pan.baidu.com/share/qrcode?w=200&h=200&url=${uri}`
+    this.userService.getUserInfo().then((info) => {
+      this.shareLink = `http://ydt.imaibo.cn/ydt/node/api/share_m_partner?suid=${info['userId']}`;
+
+
+      this.userService.getShortUrl(this.shareLink).then((url) => {
+        this.shareLink = url;
+      })
+
+      const uri = encodeURIComponent(this.shareLink);
+
+      this.qrCodeUri = `http://pan.baidu.com/share/qrcode?w=400&h=400&url=${uri}`
+    })
+  }
+
+  ngAfterViewInit() {
+    const cp = new Clipboard('.copy-btn', {
+      text: () => {
+        return this.shareLink;
+      }
+    });
+    cp.on('success', () => {
+      weui.toast('复制成功！');
+    });
+    cp.on('error', () => {
+      weui.toast('该浏览器不支持复制，请手动复制：' + this.shareLink);
     })
   }
 

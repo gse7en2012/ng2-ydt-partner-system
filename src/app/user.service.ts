@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Jsonp, URLSearchParams, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { CookieService } from 'angular2-cookie/core';
+import { CookieService } from 'ngx-cookie';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
@@ -20,7 +20,7 @@ export class UserService {
     return Promise.reject(data.msg);
   }
 
-  constructor(private cookieService: CookieService, private http: Http) {
+  constructor(private cookieService: CookieService, private http: Http,private jsonp:Jsonp) {
 
   }
 
@@ -68,6 +68,13 @@ export class UserService {
         }
         return Promise.reject(res.msg);
       });
+  }
+
+  public getShortUrl(url){
+    return this.jsonp.get(`http://suo.im/api.php?callback=JSONP_CALLBACK&format=jsonp&url=${url}`).toPromise().then(data=>{
+      const res = data.json();
+      return res.url;
+    })
   }
 
   public queryProxyAuth() {

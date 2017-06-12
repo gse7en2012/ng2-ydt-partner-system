@@ -4,12 +4,12 @@
 }
 
 .avatar{
-    width: 40%;
+    width: 36%;
     height: 0;
-    padding-bottom: 40%;
-    margin: 15% auto 10px;
+    padding-bottom: 36%;
+    margin: 80px auto 10px;
     border-radius: 50%;
-    border: 1px solid #111;
+    border: 2px solid #111;
     overflow: hidden;
 }
 .avatar img{
@@ -21,10 +21,10 @@
     border-radius: 50%;
 }
 .username{
-    color:#ffc50c;
-    font-size: 20px;
+    color: #ffc50c;
+    font-size: 36px;
     text-align: center;
-    margin-bottom: 15%;
+    margin: 30px auto 90px;
 }
 .setting-list{
     width: 90%;
@@ -36,10 +36,10 @@
 }
 .setting-list li{
     list-style: none;
-    color:#ffc50c;
-    font-size: 18px;
-    height:40px;
-    line-height: 40px;
+    color: #ffc50c;
+    font-size: 36px;
+    height: 100px;
+    line-height: 100px;
     border-bottom: 1px solid #07263b;
     padding: 1% 0;
     overflow: hidden;
@@ -49,44 +49,44 @@
     border-bottom: none;
 }
 .setting-list li .arrow{
-    border: 2px solid #ffc50c;
+    border: 4px solid #ffc50c;
     float: right;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     border-left-color: transparent;
     border-top-color: transparent;
     transform: rotate(-45deg);
-    margin-right: 5px;
-    margin-top: 14px;
+    margin-right: 10px;
+    margin-top: 36px;
 }
 .setting-list li .icon{
     float: left;
-    width: 20px;
-    height: 20px;
+    width: 50px;
+    height: 50px;
     background-size: 100%;
     background-repeat: no-repeat;
-    margin-top: 9px;
-    margin-right: 10px;
+    margin-top: 25px;
+    margin-right: 25px;
 }
 .setting-list .status{
     float: right;
     color: #38a1ff;
-    font-size: 16px;
+    font-size: 28px;
 }
 .cert.icon{
-    background-image: url('assets/img/cert.png') 
+    background-image: url('../../assets/img/cert.png') 
 }
 .intrude.icon{
-     background-image: url('assets/img/intrude.png') 
+     background-image: url('../../assets/img/intrude.png') 
 }
 .notice.icon{
-     background-image: url('assets/img/notice.png') 
+     background-image: url('../../assets/img/notice.png') 
 }
 .tips{
     color:#8db7d3;
     width: 90%;
     margin: 10px auto;
-    font-size: 14px;
+    font-size: 24px;
 }
 .tips .b{
     color: #38a1ff;

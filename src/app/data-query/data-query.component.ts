@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params, } from '@angular/router';
-import { trigger, state, animate, style, transition } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 import { UserService } from '../user.service';
 

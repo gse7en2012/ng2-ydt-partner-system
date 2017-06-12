@@ -90,7 +90,7 @@
   </div>
 
   <div class="bottom">
-    <a class="time">{{dateOut}}<input type="month" [(ngModel)]="dateIn" (ngModelChange)="dateInChange($event)" class="picker"></a>
-    <a *ngIf="queryType==1" (click)="exportExcel()"><span class="export"></span>导出为Excel</a>
+    <a class="time" (click)="dateStartPickerClick()">{{dateStartTime}}<!--<input type="month" [(ngModel)]="dateIn" (ngModelChange)="dateInChange($event)" class="picker">--></a>
+    <a *ngIf="queryType==1" (click)="exportExcel()"><span class="export"></span><span class="e-t">导出为Excel</span></a>
   </div>
 </div>

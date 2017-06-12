@@ -11,7 +11,7 @@
     </div>
   </header>
   <!--<router-outlet></router-outlet>-->
-  <div class="tips" *ngIf="validCode==2" [hidden]="hideTips">
+  <div class="tips" *ngIf="validCode==='2'" [hidden]="hideTips">
     <span class="close" (click)="hideReason()">&times;</span> {{refuseReason }}
   </div>
 
@@ -26,7 +26,7 @@
     </div>
     <div class="item">
       <label>身份证号</label>
-      <input type="tel" [(ngModel)]="idcard" placeholder="输入身份证" [readonly]="readOnly" [ngClass]="{disable: readOnly}">
+      <input type="text" [(ngModel)]="idcard" placeholder="输入身份证" [readonly]="readOnly" [ngClass]="{disable: readOnly}">
     </div>
   </div>
   <div class="form">

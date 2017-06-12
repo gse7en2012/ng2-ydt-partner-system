@@ -3,7 +3,7 @@ import { UserService } from '../user.service';
 import { Router, CanActivate, ActivatedRoute } from '@angular/router';
 
 import { ShareServiceService } from '../service/share-service.service';
-import { CookieService } from 'angular2-cookie/core';
+import { CookieService } from 'ngx-cookie';
 
 declare var plupload: any;
 declare var Qiniu: any;
@@ -114,7 +114,7 @@ export class AuthBankComponent implements OnInit,AfterViewInit {
       this.username = tmpUserInfo.user;
       this.pass = tmpUserInfo.pass;
       this.validCode = tmpUserInfo.valid;
-      this.readOnly = (tmpUserInfo.valid == 0 || tmpUserInfo.valid == 3 || tmpUserInfo.valid == 4);
+      this.readOnly = (Number(tmpUserInfo.valid) === 0 || Number(tmpUserInfo.valid) === 3 || Number(tmpUserInfo.valid) === 4);
       if (this.readOnly) this.bankPlaceHolder = '不可修改';
 
       if (tmpUserInfo.result) {
@@ -126,11 +126,11 @@ export class AuthBankComponent implements OnInit,AfterViewInit {
 
     }
 
-    if (tmpUserInfo.valid == 3) weui.alert('您的提款资料正在审核中，不能修改！');
-    if (tmpUserInfo.valid == 4) weui.alert('您的提款资料审核通过，点击确认登陆系统！', () => {
+    if (Number(tmpUserInfo.valid) === 3) weui.alert('您的提款资料正在审核中，不能修改！');
+    if (Number(tmpUserInfo.valid) === 4) weui.alert('您的提款资料审核通过，点击确认登陆系统！', () => {
       //this.router.navigate(['/query'])
     });
-    if (tmpUserInfo.valid == 5) weui.alert('您的提款资料审核失败，请修改后重新提交！');
+    if (Number(tmpUserInfo.valid) === 5) weui.alert('您的提款资料审核失败，请修改后重新提交！');
   }
 
   deleteBankCard() {

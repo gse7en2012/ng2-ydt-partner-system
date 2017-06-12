@@ -3,9 +3,9 @@
     margin: 0 auto;
 }
 .qr-code{
-    width: 50%;
-    margin: 30% auto 10px;
-    border: 5px solid #8db7d3;
+    width: 444px;
+    margin: 100px auto 10px;
+    border: 12px solid #8db7d3;
     border-radius: 5px;
 }
 .qr-code img{
@@ -15,20 +15,21 @@
 .desc{
     color:#38a1ff;
     text-align: center;
-    font-size: 18px;
+    font-size: 26px;
+    margin: 20px auto;
     margin-bottom: 40px;
 }
 
 .btn{
     display: block;
-    font-size: 20px;
+    font-size: 36px;
     background: #f8c00d;
-    height: 50px;
-    line-height: 50px;
+    height: 100px;
+    line-height: 100px;
     text-align: center;
     color: #07263b;
     width: 60%;
-    margin: 15px auto;
-    border-radius: 30px;
+    margin: 30px auto;
+    border-radius: 60px;
     text-decoration: none;
 }

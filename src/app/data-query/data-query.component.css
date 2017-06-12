@@ -6,13 +6,13 @@
 
 .data-btn{
     position: relative;
-    width: 60%;
+    width: 340px;
     background: #f8c00d;
     border-radius: 50%;
     margin: 0 auto;
     height: 0;
-    padding-bottom: 60%;
-    margin-top: 50px;
+    padding-bottom: 340px;
+    margin-top: 140px;
 }
 .data-btn.disabled{
     background: #618198;
@@ -45,12 +45,16 @@
     transform: translateY(-50%);
     margin-top: 40%;
 }
+.data-btn-header img{
+    width:60px;
+}
 .data-btn-header h3{
-    font-size: 26px;
+    font-size: 40px;
     font-weight: normal;
 }
 .sub-title{
-    font-size: 13px;
+    font-size: 22px;
+    margin-top: -5px;
 }
 
 
@@ -72,7 +76,7 @@
     text-align: center;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 20px;
+    font-size: 26px;
 }
 
 #second{
