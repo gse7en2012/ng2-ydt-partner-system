@@ -8,7 +8,16 @@
 .step .index p{color: #618198;font-size: 24px;line-height: 1.5;text-align: center;margin-top: 10px;}
 
 .tips{background: #618198;position: relative;color: #051b29;padding: 16px 50px;}
-.tips .close{position: absolute;right: 5px;font-size: 24px;background: #082d46;width: 24px;height: 24px;line-height: 20px;text-align: center;color:#38a1ff;border-radius: 50%;}
+.tips .close{position: absolute;
+    right: 5px;
+    font-size: 48px;
+    background: #082d46;
+    width: 48px;
+    height: 48px;
+    line-height: 44px;
+    text-align: center;
+    color: #38a1ff;
+    border-radius: 50%;}
 
 
 .form{background: #051b29;width: 94%;margin: 30px auto;overflow: hidden;border-radius: 10px;}

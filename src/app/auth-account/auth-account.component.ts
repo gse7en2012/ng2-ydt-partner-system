@@ -22,7 +22,7 @@ export class AuthAccountComponent implements OnInit {
   public username: string;//from url query
   public isChecking: boolean;
   public refuseReason: string='资料审核失败，请重新填写！';
-  public validCode: string;
+  public validCode: number;
   public readOnly: boolean;
   public hideTips:boolean=false;
 
@@ -38,15 +38,15 @@ export class AuthAccountComponent implements OnInit {
       this.pass = tmpUserInfo.pass;
       this.validCode = tmpUserInfo.valid; 
       //999是一开始的申请状态
-      if (typeof tmpUserInfo.valid === 'undefined') this.validCode = '999';
+      if (typeof tmpUserInfo.valid === 'undefined') this.validCode = 999;
 
-      this.readOnly = (this.validCode !== '2' && this.validCode !== '999');
+      this.readOnly = (this.validCode !== 2 && this.validCode !== 999);
       if (tmpUserInfo.result) {
         this.phone = tmpUserInfo.result.phone;
         this.idcard = tmpUserInfo.result.idCardNo;
         this.channel = tmpUserInfo.result.channelAdviser;
         this.name = tmpUserInfo.result.realName;
-        this.refuseReason = tmpUserInfo.result.refuseReason;
+        this.refuseReason = tmpUserInfo.result.refuseReason||'资料审核失败，请重新填写！';
       }
 
     }
@@ -64,7 +64,7 @@ export class AuthAccountComponent implements OnInit {
   }
 
   sumbitInfo() {
-    if (this.validCode === '1') {
+    if (this.validCode === 1) {
       return this.router.navigate(['/auth/bank']);
     }
     if (!this.phone || !this.name || !this.idcard) {

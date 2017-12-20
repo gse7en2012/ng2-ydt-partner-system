@@ -20,7 +20,7 @@ export class UserService {
     return Promise.reject(data.msg);
   }
 
-  constructor(private cookieService: CookieService, private http: Http,private jsonp:Jsonp) {
+  constructor(private cookieService: CookieService, private http: Http, private jsonp: Jsonp) {
 
   }
 
@@ -51,17 +51,17 @@ export class UserService {
   public checkIsLogin() {
     return !!this.cookieService.get(this.cookieName);
   }
- public checkAuthLogin() {
+  public checkAuthLogin() {
     return !!this.cookieService.get('ydt_partner_tmp_usr');
   }
 
   public getUserInfo() {
-     return Promise.resolve(this.cookieService.getObject(this.cookieUserObjName));
+    return Promise.resolve(this.cookieService.getObject(this.cookieUserObjName));
   }
 
-  public getUserValid(){
+  public getUserValid() {
     return this.http.get(`${this.baseUrl}/partner/queryUserInfo`).toPromise()
-    .then(data => {
+      .then(data => {
         const res = data.json();
         if (res.statusCode == 200) {
           return Promise.resolve(res);
@@ -70,12 +70,16 @@ export class UserService {
       });
   }
 
-  public getShortUrl(url){
-    return this.jsonp.get(`http://suo.im/api.php?callback=JSONP_CALLBACK&format=jsonp&url=${url}`).toPromise().then(data=>{
+  public getShortUrl(url) {
+    return this.jsonp.get(`http://suo.im/api.php?callback=JSONP_CALLBACK&format=jsonp&url=${url}`).toPromise().then(data => {
       const res = data.json();
-      return res.url;
+      if (res.url) {
+        return res.url;
+      } else {
+        return url
+      }
     })
-  }
+  } 
 
   public queryProxyAuth() {
     return this.http.get(`${this.baseUrl}/partner/queryData`)
@@ -113,7 +117,7 @@ export class UserService {
       });
   }
 
-  public submitAuthAccount(data: any):any {
+  public submitAuthAccount(data: any): any {
 
     let postDataArray: any = [];
     Object.keys(data).forEach((key) => {
@@ -129,11 +133,11 @@ export class UserService {
     return this.http.post(`${this.baseUrl}/partner/submitUserInfo`, postData, options).toPromise()
       .then((data) => {
         const res = data.json();
-        if (res.statusCode == 200  || res.statusCode == 1018) {
-          return Promise.resolve({scode:res.statusCode})
+        if (res.statusCode == 200 || res.statusCode == 1018) {
+          return Promise.resolve({ scode: res.statusCode })
         }
-        if(res.statusCode == 1017){
-           return Promise.reject('请等待个人资料审核完成，再提交提款资料！');
+        if (res.statusCode == 1017) {
+          return Promise.reject('请等待个人资料审核完成，再提交提款资料！');
         }
 
         return Promise.reject(res.msg);

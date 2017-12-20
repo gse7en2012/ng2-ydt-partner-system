@@ -1,0 +1,31 @@
+.pop-land-page{
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.desc{
+   color: #f8c00d;
+    text-align: center;
+    margin: 200px auto;
+    margin-bottom: 80px;
+    font-size: 52px;
+}
+.sub-desc{
+ font-size: 32px;
+  color: #f8c00d;
+    text-align: center;
+}
+
+.btn{
+    display: block;
+    font-size: 36px;
+    background: #f8c00d;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    color: #07263b;
+    width: 60%;
+    margin: 30px auto;
+    border-radius: 60px;
+    text-decoration: none;
+}

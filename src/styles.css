@@ -60,7 +60,8 @@ body{
     color:#ffc50c;
     text-decoration: none;
     float:left;
-    width:33.33%;
+    width: 50%;
+    /* width:33.33%; */
 }
 .nav-bot .nav.cur{
     background: #ffc50c;
@@ -120,7 +121,21 @@ body{
             transform: scaleY(1); } }
 
 
-
+.article{
+    background: #07263b;
+    position: absolute;
+    z-index: 10;
+    padding: 40px;
+    color: #38a1ff;
+    text-align: justify;
+}
+.article p{
+    margin: 40px auto;
+    line-height: 1.5;
+}
+.article h1{
+    font-size: 48px;text-align: center;
+}
 
 /*weui reset*/
 .weui-dialog{background: #07263b;max-width: 600px;}

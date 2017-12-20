@@ -11,7 +11,7 @@
     </div>
   </header>
   <!--<router-outlet></router-outlet>-->
-  <div class="tips" *ngIf="validCode=='2'||validCode=='5'" [hidden]="hideTips">
+  <div class="tips" *ngIf="validCode==2||validCode==5" [hidden]="hideTips">
     <span class="close" (click)="hideReason()">&times;</span> {{refuseReason }}
   </div>
 
@@ -44,5 +44,13 @@
 
   <a (click)="submitInfo()" class="btn" [ngClass]="{cur: bankNo&&bankCardUri&&idCardUri}">{{btnText}}</a>
   <!--<a (click)="skipSubmit()" class="skip" *ngIf="!isChecking">跳过此步，提交基本资料</a>-->
-  <a (click)="gotoIndex()" class="skip" *ngIf="validCode=='1'||validCode=='3'||validCode=='4'||validCode=='5'">跳过此步，进入合作伙伴系统</a>
+  <a (click)="gotoIndex()" class="skip" *ngIf="validCode==1||validCode==3||validCode==4||validCode==5">跳过此步，进入合作伙伴系统</a>
+
+  <div class="mark">
+    申请成为代理人即表同意<br>
+    <a [routerLink]="['/auth/teamwork']">《合作协议》</a>及
+    <a [routerLink]="['/auth/mark']">《合作协议备忘录》</a>条款
+    
+  </div>
+
 </div>

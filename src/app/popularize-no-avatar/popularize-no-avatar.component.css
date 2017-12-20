@@ -1,0 +1,35 @@
+.pop-page{
+    max-width: 750px;
+    margin: 0 auto;
+}
+.qr-code{
+    width: 444px;
+    margin: 100px auto 10px;
+    border: 12px solid #8db7d3;
+    border-radius: 5px;
+}
+.qr-code img{
+    width: 100%;
+    display: block;
+}
+.desc{
+    color:#38a1ff;
+    text-align: center;
+    font-size: 26px;
+    margin: 20px auto;
+    margin-bottom: 40px;
+}
+
+.btn{
+    display: block;
+    font-size: 36px;
+    background: #f8c00d;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    color: #07263b;
+    width: 60%;
+    margin: 30px auto;
+    border-radius: 60px;
+    text-decoration: none;
+}

@@ -40,22 +40,26 @@
           <th>id</th>
           <th>开户日期</th>
           <th>达标</th>
-          <th>累计入金</th>
+          <th>当月净入金</th>
+          <th>当月点差</th>
+          <!-- <th>累计入金</th>
           <th>累计出金</th>
           <th>点差天数</th>
           <th>累计平仓笔数</th>
-          <th>当月平均仓位</th>
+          <th>当月平均仓位</th> -->
         </tr>
         <tr *ngFor="let row of dataDetails.results">
           <td><span>{{row.nickName}}</span></td>
           <td>{{row.id}}</td>
           <td>{{row.registryDate}}</td>
           <td>{{row.valid}}</td>
-          <td>{{row.deposits}}</td>
+          <td>{{row.netDeposits}}</td>
+          <td>{{row.revenues}}</td>
+          <!-- <td>{{row.deposits}}</td>
           <td>{{row.cashout}}</td>
           <td>{{row.revenueDays}}</td>
           <td>{{row.trades}}</td>
-          <td>{{row.avgpos}}</td>
+          <td>{{row.avgpos}}</td> -->
         </tr>
 
         <tr *ngIf="dataDetails.results==0">

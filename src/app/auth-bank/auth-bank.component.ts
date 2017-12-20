@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone,AfterViewInit } from '@angular/core';
+import { Component, OnInit, NgZone, AfterViewInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router, CanActivate, ActivatedRoute } from '@angular/router';
 
@@ -15,7 +15,7 @@ declare var weui: any;
   templateUrl: './auth-bank.component.html',
   styleUrls: ['./auth-bank.component.css']
 })
-export class AuthBankComponent implements OnInit,AfterViewInit {
+export class AuthBankComponent implements OnInit, AfterViewInit {
 
   public bankCardIsUpload: boolean = false;
   public idCardIsUpload: boolean = false;
@@ -24,24 +24,29 @@ export class AuthBankComponent implements OnInit,AfterViewInit {
   public username: string;
   public pass: string;
   public bankNo: string;
-  public hideTips:boolean=false;
-
-  public refuseReason: string='资料审核失败，请重新填写！';
-
+  public hideTips: boolean = false;
+  public refuseReason: string = '资料审核失败，请重新填写！';
   public btnText: string = '提交审核';
-  public validCode: string;
+  public validCode: number;
   public readOnly: boolean;
   public bankPlaceHolder: string = '在此输入银行卡号';
 
-  constructor(private zone: NgZone, private router: Router, private activatedRoute: ActivatedRoute, private userService: UserService, private shareService: ShareServiceService, private cookieService: CookieService) { }
+  constructor(
+    private zone: NgZone,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private userService: UserService,
+    private shareService: ShareServiceService,
+    private cookieService: CookieService
+  ) { }
 
   private getUploadOpts(type) {
     const _self = this;
     return {
       runtimes: 'html5,flash,html4',      // 上传模式，依次退化
       browse_button: type === 'bank' ? 'bank-card-upload' : 'id-card-upload',         // 上传选择的点选按钮，必需
-      // uptoken_url: '/gmapi/qiniu_upload_token',         // Ajax请求uptoken的Url，强烈建议设置（服务端提供）
-      uptoken: 'POQvaC2kzeErHALP6TVgVrWAB3_WLQG--ti5Wfmz:SxHtMD5CRdVVmtr88BtjuWNELc0=:eyJtaW1lTGltaXQiOiJpbWFnZS9qcGVnO2ltYWdlL3BuZyIsInNjb3BlIjoieWR0LXBhcnRuZXIiLCJkZWFkbGluZSI6MTQ5NjcyMDA5OX0=',
+      uptoken_url: '/ydt/admin/topics/token_partner',         // Ajax请求uptoken的Url，强烈建议设置（服务端提供）
+      // uptoken: 'POQvaC2kzeErHALP6TVgVrWAB3_WLQG--ti5Wfmz:SxHtMD5CRdVVmtr88BtjuWNELc0=:eyJtaW1lTGltaXQiOiJpbWFnZS9qcGVnO2ltYWdlL3BuZyIsInNjb3BlIjoieWR0LXBhcnRuZXIiLCJkZWFkbGluZSI6MTQ5NjcyMDA5OX0=',
       get_new_uptoken: false,             // 设置上传文件的时候是否每次都重新获取新的uptoken
       domain: 'http://oqdyk3j4f.bkt.clouddn.com/',     // bucket域名，下载资源时用到，必需
       max_file_size: '500mb',             // 最大文件体积限制
@@ -98,11 +103,11 @@ export class AuthBankComponent implements OnInit,AfterViewInit {
 
 
   ngOnInit() {
-   
+
   }
 
-  ngAfterViewInit(){
- const uploadBankCard = Qiniu.uploader(this.getUploadOpts('bank'));
+  ngAfterViewInit() {
+    const uploadBankCard = Qiniu.uploader(this.getUploadOpts('bank'));
     const uploadIdCard = (new QiniuJsSDK()).uploader(this.getUploadOpts('id'));
 
 
@@ -121,7 +126,9 @@ export class AuthBankComponent implements OnInit,AfterViewInit {
         this.bankCardUri = tmpUserInfo.result.bankCardPic;
         this.idCardUri = tmpUserInfo.result.idCardPic;
         this.bankNo = tmpUserInfo.result.bankCardNo;
-        this.refuseReason = tmpUserInfo.result.refuseReason;
+        this.refuseReason = tmpUserInfo.result.refuseReason||'资料审核失败，请重新填写！';
+        this.bankCardIsUpload = this.bankCardUri ? true : false;
+        this.idCardIsUpload = this.idCardUri ? true : false;
       }
 
     }

@@ -8,8 +8,8 @@ import { Router, CanActivate } from '@angular/router';
   templateUrl: './setting.component.html',
   styleUrls: ['./setting.component.css'],
   animations: [trigger('routerTransition', [
-    state('void', style({ position: 'fixed', width: '100%', height: '100%', left: 0, top: 0, background: '#07263b' })),
-    state('*', style({ position: 'fixed', width: '100%', height: '100%', left: 0, top: 0, background: '#07263b' })),
+    state('void', style({ position: 'absolute', width: '100%', 'minHeight': '100%', left: 0, top: 0, background: '#07263b' })),
+    state('*', style({ position: 'absolute', width: '100%', 'minHeight': '100%', left: 0, top: 0, background: '#07263b' })),
     transition(':enter', [  // before 2.1: transition('void => *', [
       style({ transform: 'translateX(100%)' }),
       animate('0.25s linear', style({ transform: 'translateX(0%)' }))
